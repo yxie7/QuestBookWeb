@@ -1,0 +1,5 @@
+﻿CREATE PROCEDURE [dbo].[QuestGetAll]
+AS
+	SELECT *
+	FROM Quests
+RETURN 0

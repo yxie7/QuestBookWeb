@@ -1,0 +1,33 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30717.126
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "QuestBookAPI", "QuestBookAPI\QuestBookAPI.csproj", "{32A0016A-9F00-4133-9BE5-3BC2E9938011}"
+EndProject
+Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "QuestBookDB", "QuestBookDB\QuestBookDB.sqlproj", "{98DF7BCF-61EE-4969-AC43-CDA0B1DCA424}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{32A0016A-9F00-4133-9BE5-3BC2E9938011}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{32A0016A-9F00-4133-9BE5-3BC2E9938011}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{32A0016A-9F00-4133-9BE5-3BC2E9938011}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{32A0016A-9F00-4133-9BE5-3BC2E9938011}.Release|Any CPU.Build.0 = Release|Any CPU
+		{98DF7BCF-61EE-4969-AC43-CDA0B1DCA424}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{98DF7BCF-61EE-4969-AC43-CDA0B1DCA424}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{98DF7BCF-61EE-4969-AC43-CDA0B1DCA424}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{98DF7BCF-61EE-4969-AC43-CDA0B1DCA424}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{98DF7BCF-61EE-4969-AC43-CDA0B1DCA424}.Release|Any CPU.Build.0 = Release|Any CPU
+		{98DF7BCF-61EE-4969-AC43-CDA0B1DCA424}.Release|Any CPU.Deploy.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {BBB84738-3940-445C-91B7-B1051D2F9176}
+	EndGlobalSection
+EndGlobal
