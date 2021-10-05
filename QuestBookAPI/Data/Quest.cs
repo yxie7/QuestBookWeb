@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 namespace QuestBookAPI.Data
 {
-    public class Quests
+    public class Quest
     {
         public int Id { get; set; }
         public string Name { get; set; }

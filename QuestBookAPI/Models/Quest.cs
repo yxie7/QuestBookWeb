@@ -1,18 +1,11 @@
-﻿using Microsoft.AspNetCore.Mvc;
-
-namespace QuestBookAPI.Models
+﻿namespace QuestBookAPI.Models
 {
-    public class Quest : Controller
+    public class Quest
     {
-        public int id { get; set; }
-        public string name { get; set; }
-        public string description { get; set; }
-        public int estimatedCompletionTime { get; set; }
-        public bool completed { get; set; }
-
-        public IActionResult Index()
-        {
-            return View();
-        }
+        public int Id { get; set; }
+        public string Name { get; set; }
+        public string? Description { get; set; }
+        public int? EstimatedCompletionTime { get; set; }
+        public bool? Completed { get; set; }
     }
 }

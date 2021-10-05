@@ -7,4 +7,11 @@
     <Property Name="ParentElementType" Value="SqlSchema" />
     <Property Name="NewName" Value="QuestList" />
   </Operation>
+  <Operation Name="Rename Refactor" Key="ff1c9747-a87a-484d-95e1-8c5191221571" ChangeDateTime="10/05/2021 18:54:11">
+    <Property Name="ElementName" Value="[dbo].[Quests]" />
+    <Property Name="ElementType" Value="SqlTable" />
+    <Property Name="ParentElementName" Value="[dbo]" />
+    <Property Name="ParentElementType" Value="SqlSchema" />
+    <Property Name="NewName" Value="Quest" />
+  </Operation>
 </Operations>

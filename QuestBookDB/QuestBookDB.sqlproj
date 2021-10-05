@@ -58,12 +58,9 @@
     <Folder Include="Properties" />
     <Folder Include="dbo" />
     <Folder Include="dbo\Tables" />
-    <Folder Include="dbo\Stored Procedures" />
   </ItemGroup>
   <ItemGroup>
     <Build Include="dbo\Tables\Quest.sql" />
-    <Build Include="dbo\Stored Procedures\QuestCreate.sql" />
-    <Build Include="dbo\Stored Procedures\QuestGetAll.sql" />
   </ItemGroup>
   <ItemGroup>
     <RefactorLog Include="QuestBookDB.refactorlog" />

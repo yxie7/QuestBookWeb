@@ -21,10 +21,9 @@ namespace QuestBookAPI
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddScoped<IQuestRepo, QuestRepo>();
-            var connectionString = Configuration.GetConnectionString("connect");
+            var connectionString = Configuration.GetConnectionString("localdb");
             services.AddDbContext<QuestBookDbContext>(options => options.UseSqlServer(connectionString));
             services.AddControllers();
-
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

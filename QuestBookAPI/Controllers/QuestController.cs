@@ -1,12 +1,10 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using System;
-using System.Data;
-using System.Data.SqlClient;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using Microsoft.Extensions.Configuration;
 using QuestBookAPI.Data;
+using QuestBookAPI.Models;
+using System;
+using System.Collections.Generic;
+using System.Threading.Tasks;
 
 namespace QuestBookAPI.Controllers
 {
@@ -15,18 +13,14 @@ namespace QuestBookAPI.Controllers
     public class QuestController : Controller
     {
         private readonly IQuestRepo _questRepo;
-        private readonly QuestBookDbContext _context;
-        private readonly IConfiguration _configuration;
 
         public QuestController(IQuestRepo questRepo, QuestBookDbContext context, IConfiguration config)
         {
             _questRepo = questRepo;
-            _configuration = config;
-            _context = context;
         }
 
         [HttpGet("GetQuests")]
-        public async Task<ActionResult<ICollection<Quests>>> GetQuests()
+        public async Task<ActionResult<ICollection<Quest>>> GetQuests()
         {
             try
             {
@@ -37,11 +31,71 @@ namespace QuestBookAPI.Controllers
                 }
                 return Ok(questList);
             }
-            catch(Exception)
+            catch (Exception)
             {
                 return StatusCode(505, "An error has occured.");
             }
         }
 
+        [HttpGet("GetQuest/{Id}")]
+        public async Task<ActionResult<Quest>> GetQuest(int Id)
+        {
+            try
+            {
+                var quest = await _questRepo.GetQuest(Id);
+                if (quest != null) return quest;
+                else return StatusCode(404, "No quest found");
+            }
+            catch (Exception)
+            {
+                return StatusCode(505, "An error has occured.");
+            }
+        }
+
+        [HttpPost("CreateQuest")]
+        public async Task<ActionResult> CreateQuest([FromBody] Quest quest)
+        {
+            if (quest == null)
+                return StatusCode(404, "No quest data found");
+            if (!ModelState.IsValid)
+                return BadRequest(ModelState);
+            await _questRepo.CreateQuest(quest);
+            // Ok or CreatedAtAction
+            return CreatedAtAction(nameof(GetQuest), new { Id = quest.Id }, quest);
+        }
+
+        [HttpPut("UpdateQuest/{Id}")]
+        public async Task<ActionResult> UpdateQuest(int Id, [FromBody] Quest quest)
+        {
+            try
+            {
+                var questInDb = await _questRepo.GetQuest(Id);
+                if (questInDb == null || quest == null || questInDb.Id != quest.Id)
+                    return StatusCode(404, "No quest data found");
+                await _questRepo.UpdateQuest(questInDb, quest);
+                return Ok(quest);
+            }
+            catch (Exception)
+            {
+                return StatusCode(505, "An error has occured.");
+            }
+        }
+
+        [HttpDelete("DeleteQuest/{Id}")]
+        public async Task<ActionResult> DeleteQuest(int Id)
+        {
+            try
+            {
+                var questInDb = await _questRepo.GetQuest(Id);
+                if (questInDb == null)
+                    return StatusCode(404, "No quest data found");
+                await _questRepo.DeleteQuest(questInDb);
+                return Ok(await _questRepo.GetQuests());
+            }
+            catch (Exception)
+            {
+                return StatusCode(505, "An error has occured.");
+            }
+        }
     }
 }

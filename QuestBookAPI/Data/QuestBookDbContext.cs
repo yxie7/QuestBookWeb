@@ -1,18 +1,15 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+using QuestBookAPI.Models;
 
 namespace QuestBookAPI.Data
 {
-    public class QuestBookDbContext: DbContext
+    public class QuestBookDbContext : DbContext
     {
-        public QuestBookDbContext(DbContextOptions<QuestBookDbContext> options): base(options)
+        public QuestBookDbContext(DbContextOptions<QuestBookDbContext> options) : base(options)
         {
-            Database.EnsureCreated();
+            //Database.EnsureCreated();
         }
-        public DbSet<Quests> Quests { get; set; }
 
+        public DbSet<Quest> Quest { get; set; }
     }
 }
